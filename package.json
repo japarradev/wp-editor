@@ -1,0 +1,17 @@
+{
+  "name": "wp-editor",
+  "version": "1.0.0",
+  "description": "WhatsApp Editor",
+  "main": "index.js",
+  "scripts": {
+    "test": "dev"
+  },
+  "author": "japarradev",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^17.1.2"
+  },
+  "eslintConfig": {
+    "extends": "standard"
+  }
+}

@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="src\css\whatsapp-editor.css">
+
+</head>
+<body>
+    <div id="whatsapp-editor-container">
+    </div>
+    <br />
+    <button onclick="return getWhatAppFormattedContent();">Get Whatsapp Content</button>
+    <script type="text/javascript" src="src\js\whatsapp-editor.js"></script>
+
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function () {
+          var editorElement = document.getElementById('whatsapp-editor-container');
+          
+          // Inicializa el editor usando la función whatsappEditor
+          var editor = whatsappEditor(editorElement, {
+              content: '<b>Hello</b><br><i>World</i>'
+          });
+  
+          // Función para obtener el contenido formateado
+          window.getWhatAppFormattedContent = function() {
+              alert(editor.getFormattedContent());
+              return false;
+          };
+      });
+  </script>
+</body>
+</html>
