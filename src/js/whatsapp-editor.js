@@ -274,25 +274,22 @@
     htmlContent = htmlContent.replace(/<style[\s\S]*?>[\s\S]*?<\/style>/gi, '')
 
     htmlContent = htmlContent.replace(/<b>(.*?)<\/b>/gs, function (match, content) {
-      return content.split(/<br\s*\/?>/).map(line => line.trim() ? `*${line}*` : '').join('\n')
+      return content.split(/<br\s*\/?>/).map(line => line ? `*${line.trimRight()}* ` : '').join('\n')
     })
 
     htmlContent = htmlContent.replace(/<i>(.*?)<\/i>/gs, function (match, content) {
-      return content.split(/<div>|<\/div>/).map(line => line.trim() ? `_${line}_` : '').join('\n')
+      return content.split(/<br\s*\/?>/).map(line => line ? `_${line.trimRight()}_ ` : '').join('\n')
     })
 
     htmlContent = htmlContent.replace(/<strike>(.*?)<\/strike>/gs, function (match, content) {
-      return content.split(/<br\s*\/?>/).map(line => line.trim() ? `~${line}~` : '').join('\n')
+      return content.split(/<br\s*\/?>/).map(line => line ? `~${line.trimRight()}~ ` : '').join('\n')
     })
 
     htmlContent = htmlContent
-      .replace(/<b>|<\/b>/g, '*') // BOLD
-      .replace(/<i>|<\/i>/g, '_') // Italic
-      .replace('&nbsp;', ' ') // Italic
-      .replace(/<strike>|<\/strike>/g, '~')
-      .replace(/<font face="monospace" style="">|<font face="monospace">|<\/font>/g, '```')
+
       .replace(/<br\s*\/?>/g, '\n')
       .replace(/<[^>]*>/g, '')
+      .replace('&nbsp;', ' ')
 
     return htmlContent
   }
