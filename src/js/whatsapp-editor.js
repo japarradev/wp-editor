@@ -294,8 +294,8 @@
     return htmlContent
   }
 
-  const getFormattedContent = function () {
-    const editor = element.querySelector('.whatsapp-editor')
+  const getFormattedContent = function (elementId) {
+    const editor = document.querySelector(`#${elementId} .whatsapp-editor`)
     if (editor) {
       return prepareFormattedContent(editor.innerHTML)
     }
