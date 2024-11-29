@@ -289,7 +289,7 @@
 
       .replace(/<br\s*\/?>/g, '\n')
       .replace(/<[^>]*>/g, '')
-      .replace('&nbsp;', ' ')
+      .replaceAll('&nbsp;', ' ')
 
     return htmlContent
   }
